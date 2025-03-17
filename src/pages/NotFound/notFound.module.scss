@@ -1,0 +1,23 @@
+.notFoundContainer {
+  text-align: center;
+  color: var(--main-text-color);
+}
+
+.notFoundTitle {
+  font-size: calc(var(--spacing-xxlarge) * 3);
+  margin: var(--spacing-xlarge) 0 var(--spacing-xlarge);
+}
+
+.notFoundSubtitle {
+  font-size: var(--spacing-xlarge);
+}
+
+.notFoundText {
+  font-size: var(--spacing-xlarge);
+  margin: var(--spacing-large) 0 var(--spacing-large);
+}
+
+.notFoundButton {
+  text-decoration: none;
+  margin-top: var(--spacing-large);
+}

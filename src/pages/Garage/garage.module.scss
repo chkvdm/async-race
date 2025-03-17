@@ -1,0 +1,21 @@
+.carsManagementContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: var(--spacing-large);
+}
+
+.raceManagmentContainer {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  margin-bottom: var(--spacing-medium);
+}
+
+.raceTrackContainer {
+  margin-bottom: var(--spacing-medium);
+}
+
+.raceTrackPaginationContainer {
+  margin-bottom: var(--spacing-medium);
+}

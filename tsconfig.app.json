@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "@garageFeatures/*": ["features/garage/*"],
+      "@raceFeatures/*": ["features/race/*"],
+      "@garageComponents/*": ["features/garage/components/*"],
+      "@garageTypes/*": ["features/garage/ts/*"],
+      "@winnerTypes/*": ["features/winners/ts/*"],
+      "@raceTypes/*": ["features/race/ts/*"],
+      "@reduxHook": ["utils/helpers/reduxUseHook"],
+      "@store": ["store/store"]
+    },
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "composite": true
+  },
+  "include": ["src/**/*"]
+}

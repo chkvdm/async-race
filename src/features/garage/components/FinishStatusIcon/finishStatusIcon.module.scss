@@ -1,0 +1,19 @@
+.finishFlagIcon {
+  margin-left: var(--spacing-small);
+}
+
+@keyframes check-engine-color {
+  0% {
+    color: grey;
+  }
+  50% {
+    color: rgb(255, 165, 0);
+  }
+  100% {
+    color: grey;
+  }
+}
+
+.checkEngineIcon {
+  animation: check-engine-color 1s infinite;
+}

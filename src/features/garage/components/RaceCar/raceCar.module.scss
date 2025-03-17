@@ -1,0 +1,12 @@
+.raceCarIcon {
+  color: var(--car-color);
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: var(--car-position);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--car-transition);
+  animation-play-state: var(--car-animation-state);
+}

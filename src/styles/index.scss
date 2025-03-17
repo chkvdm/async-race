@@ -1,0 +1,20 @@
+@use 'vars.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--body-color);
+  background: var(--body-background-color-left);
+  background: linear-gradient(
+    to right,
+    var(--body-background-color-left),
+    var(--body-background-color-right)
+  );
+  background-size: cover;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}

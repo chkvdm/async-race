@@ -1,0 +1,36 @@
+.footerContent {
+  padding: var(--spacing-medium) 0;
+  margin-top: auto;
+}
+
+.footerList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerItem {
+  padding: 0.2rem 0;
+}
+
+.footerLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-text-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+.footerLink:hover {
+  opacity: 0.5;
+}
+
+.footerThumb {
+  padding-right: 0.3rem;
+}
