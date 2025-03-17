@@ -15,7 +15,8 @@
       "@winnerTypes/*": ["features/winners/ts/*"],
       "@raceTypes/*": ["features/race/ts/*"],
       "@reduxHook": ["utils/helpers/reduxUseHook"],
-      "@store": ["store/store"]
+      "@store": ["store/store"],
+      "widgets/*": ["src/widgets/*"]
     },
 
     "moduleResolution": "bundler",
