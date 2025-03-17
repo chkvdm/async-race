@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 
-import styles from 'components/buttons/actionButton/actionButton.module.scss';
+import styles from 'components/Buttons/ActionButton/actionButton.module.scss';
 
 interface ActiveButtonProps {
   type?: 'primary';

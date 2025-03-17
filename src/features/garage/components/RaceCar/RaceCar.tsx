@@ -6,7 +6,7 @@ import RaceStatus from '@raceTypes/enums/race.enums';
 import { useAppSelector } from '@reduxHook';
 import { RootState } from '@store';
 import useRaceCarService from '@raceFeatures/services/raceCarServices';
-import styles from '@garageComponents/raceCar/raceCar.module.scss';
+import styles from '@garageComponents/RaceCar/raceCar.module.scss';
 
 type RaceCarType = {
   car: Car;

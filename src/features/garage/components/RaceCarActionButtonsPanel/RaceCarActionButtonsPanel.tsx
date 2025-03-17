@@ -10,7 +10,7 @@ import { Car } from '@garageTypes/types/garage.types';
 import { useAppSelector } from '@reduxHook';
 import { RootState } from '@store';
 import useRaceCarService from '@raceFeatures/services/raceCarServices';
-import styles from '@garageComponents/raceCarActionButtonsPanel/raceCarActionButton.module.scss';
+import styles from '@garageComponents/RaceCarActionButtonsPanel/raceCarActionButton.module.scss';
 import RaceStatus from '@raceFeatures/ts/enums/race.enums';
 
 type RaceCarActionButtonsPanelType = {

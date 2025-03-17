@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 
-import styles from 'pages/notFound/notFound.module.scss';
+import styles from 'pages/NotFound/notFound.module.scss';
 
 const NotFound: React.FC = () => (
   <div className={styles.notFoundContainer}>

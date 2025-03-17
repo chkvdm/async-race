@@ -6,7 +6,7 @@ import RaceModal from '@raceFeatures/components/RaceResultModal/RaceResultModal'
 import RaceCarActionButtonsPanel from '@garageFeatures/components/RaceCarActionButtonsPanel/RaceCarActionButtonsPanel';
 import RaceCar from '@garageFeatures/components/RaceCar/RaceCar';
 import FinishStatusIcon from '@garageFeatures/components/FinishStatusIcon/FinishStatusIcon';
-import styles from '@garageComponents/raceTrack/raceTrack.module.scss';
+import styles from '@garageComponents/RaceTrack/raceTrack.module.scss';
 
 interface RaceTrackType {
   carRefs: React.MutableRefObject<{

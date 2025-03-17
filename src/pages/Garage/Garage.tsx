@@ -9,7 +9,7 @@ import RaceControlPanel from '@garageFeatures/components/RaceControlPanel/RaceCo
 import RaceTrack from '@garageFeatures/components/RaceTrack/RaceTrack';
 import RaceTrackPagination from '@garageFeatures/components/Paginations/RaceTrackPagination';
 import TableLoader from 'components/Loaders/TableLoader/TableLoader';
-import styles from 'pages/garage/garage.module.scss';
+import styles from 'pages/Garage/garage.module.scss';
 
 const Garage: React.FC = () => {
   const { loading } = useAppSelector((state: RootState) => state.garage);

@@ -1,8 +1,8 @@
 import { ReactNode, useContext } from 'react';
 
-import styles from 'layout/content.module.scss';
 import Header from 'widgets/Header/Header';
 import Footer from 'widgets/Footer/Footer';
+import styles from 'layout/content.module.scss';
 
 import { CarRefsContext } from 'CarRefsContext/CarRefsContext';
 

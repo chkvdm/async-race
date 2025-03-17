@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 
-import styles from 'components/inputs/textInputs/textInput.module.scss';
+import styles from 'components/Inputs/TextInputs/textInput.module.scss';
 
 interface ActiveInputProps {
   placeholder?: string;

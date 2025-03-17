@@ -4,7 +4,7 @@ import useRaceCarService from '@raceFeatures/services/raceCarServices';
 import { startRace, stopRace, pauseRace, resumeRace } from '@raceFeatures/slices/raceThunks';
 import ActionButton from 'components/Buttons/ActionButton/ActionButton';
 import RaceStatus from '@raceTypes/enums/race.enums';
-import styles from '@garageComponents/raceControlPanel/raceButtonGroup.module.scss';
+import styles from '@garageComponents/RaceControlPanel/raceButtonGroup.module.scss';
 
 interface RaceControlPanelProps {
   carRefs: React.MutableRefObject<{

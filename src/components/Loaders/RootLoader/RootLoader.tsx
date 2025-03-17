@@ -1,5 +1,5 @@
 import { Spin } from 'antd';
-import styles from 'components/loaders/rootLoader/rootLoader.module.scss';
+import styles from 'components/Loaders/RootLoader/rootLoader.module.scss';
 
 const RootLoader: React.FC = () => {
   return (

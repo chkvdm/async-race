@@ -1,7 +1,7 @@
 import { ColorPicker } from 'antd';
 import type { Color } from 'antd/es/color-picker';
 
-import styles from 'components/colorPickers/controlledColorPicker/controlledColorPicker.module.scss';
+import styles from 'components/ColorPickers/ControlledColorPicker/controlledColorPicker.module.scss';
 
 interface ControlledColorPickerProps {
   value: string;
