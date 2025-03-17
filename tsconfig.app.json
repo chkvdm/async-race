@@ -16,7 +16,7 @@
       "@raceTypes/*": ["features/race/ts/*"],
       "@reduxHook": ["utils/helpers/reduxUseHook"],
       "@store": ["store/store"],
-      "widgets/*": ["src/widgets/*"]
+      "@widgets/*": ["widgets/*"]
     },
 
     "moduleResolution": "bundler",

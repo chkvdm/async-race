@@ -9,7 +9,7 @@ import { pauseRace } from '@raceFeatures/slices/raceThunks';
 import { RootState } from '@store';
 import useRaceCarService from '@raceFeatures/services/raceCarServices';
 import RaceStatus from '@raceTypes/enums/race.enums';
-import ResumeRaceModal from 'widgets/Header/components/resumeRaceModal/ResumeRaceModal';
+import ResumeRaceModal from '@widgets/Header/components/resumeRaceModal/ResumeRaceModal';
 import styles from 'widgets/Header/header.module.scss';
 
 type HeaderProps = {
