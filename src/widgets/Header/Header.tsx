@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import Logo from 'widgets/Header/components/Logo/Logo';
+import Logo from '@widgets/Header/components/Logo/Logo';
 import PageName from 'features/root/ts/enums/root.enums';
 import { useAppDispatch, useAppSelector } from '@reduxHook';
 import { setRootPageName } from 'features/root/slices/rootSlice';
