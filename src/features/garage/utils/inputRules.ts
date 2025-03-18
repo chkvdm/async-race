@@ -6,8 +6,12 @@ const inputRules: Rule[] = [
     message: 'Car is required',
   },
   {
-    pattern: /^[A-Za-zА-Яа-яЁё]+\s+[A-Za-zА-Яа-яЁё0-9]+$/,
-    message: 'Please input a car brand and car model',
+    pattern: /^[A-Za-zА-Яа-яЁё0-9\s]+$/,
+    message: 'Please, use only letters (A-Z, А-Я) and numbers.',
+  },
+  {
+    max: 20,
+    message: 'Max. 20 characters',
   },
 ];
 
