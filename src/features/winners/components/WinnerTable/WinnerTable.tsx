@@ -8,7 +8,7 @@ import {
 
 import { useAppSelector } from '@reduxHook';
 import { RootState } from '@store';
-import useWinnerState from 'features/winners/hooks/useWinnersState';
+import useWinnerPagination from 'features/winners/hooks/useWinnersPagination';
 import { WinnersLimits } from '@winnerTypes/enums/winners.enums';
 import useWinnerColumns from 'features/winners/components/WinnerTable/WinnerTableColumn';
 import WinnerTableLoader from 'components/Loaders/TableLoader/TableLoader';
@@ -16,7 +16,7 @@ import WinnerTableLoader from 'components/Loaders/TableLoader/TableLoader';
 const WinnerTable: React.FC = () => {
   const { winners, loading, winnersError } = useAppSelector((state: RootState) => state.winners);
   const { sorting, pagination, totalWinners, handlePageChange, handleSortChange } =
-    useWinnerState();
+    useWinnerPagination();
 
   const pageCount = Math.ceil(totalWinners / WinnersLimits.PAGE_LIMIT);
   const columns = useWinnerColumns();

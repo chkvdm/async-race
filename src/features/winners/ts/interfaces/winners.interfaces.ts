@@ -20,9 +20,9 @@ export interface WinnersState {
   sorting: Sorting;
 }
 
-type WinnersStatePartForHook = Pick<WinnersState, 'sorting' | 'pagination' | 'totalWinners'>;
+type WinnersPaginationHookState = Pick<WinnersState, 'sorting' | 'pagination' | 'totalWinners'>;
 
-export interface UseWinnerState extends WinnersStatePartForHook {
+export interface UseWinnerPaginationHook extends WinnersPaginationHookState {
   handlePageChange: (newPaginationParam: WinnersPaginationState) => void;
   handleSortChange: (newSortingParam: Sorting) => void;
 }

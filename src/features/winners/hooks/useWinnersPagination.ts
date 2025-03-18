@@ -1,4 +1,4 @@
-import { UseWinnerState } from '@winnerTypes/interfaces/winners.interfaces';
+import { UseWinnerPaginationHook } from '@winnerTypes/interfaces/winners.interfaces';
 import { useAppDispatch, useAppSelector } from '@reduxHook';
 import { RootState } from '@store';
 import { useEffect } from 'react';
@@ -6,7 +6,7 @@ import { setSortingParametrs, setPaginationParametrs } from 'features/winners/sl
 import { fetchWinners } from 'features/winners/slices/winnerThunks';
 import { Sorting, WinnersPaginationState } from '@winnerTypes/types/winners.types';
 
-const useWinnerState = (): UseWinnerState => {
+const UseWinnerPagination = (): UseWinnerPaginationHook => {
   const dispatch = useAppDispatch();
   const { sorting, pagination, totalWinners } = useAppSelector((state: RootState) => state.winners);
 
@@ -25,4 +25,4 @@ const useWinnerState = (): UseWinnerState => {
   return { sorting, pagination, totalWinners, handlePageChange, handleSortChange };
 };
 
-export default useWinnerState;
+export default UseWinnerPagination;
