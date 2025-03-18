@@ -23,7 +23,7 @@ export const startRace = createAsyncThunk(
     { rejectWithValue }
   ) => {
     return handleApiRequest(async () => {
-      await Promise.all(cars.map((car) => startCar(car.id)));
+      cars.forEach((car) => startCar(car.id));
       cars.forEach((car) => drive(car.id, carRefs));
       return 'Race started successfully';
     }, rejectWithValue);
