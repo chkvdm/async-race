@@ -14,6 +14,7 @@ export type CarStateOnTreck = {
   engineStatus: string;
   engineCondition: boolean;
   isDrive: boolean;
+  isFinished: boolean;
   trackTime: number;
   trackTimeAfterPause: number;
   carStateOnTreckError: string;
