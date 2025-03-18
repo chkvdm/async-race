@@ -5,6 +5,7 @@ import { Car } from '@garageFeatures/ts/types/garage.types';
 export interface RaceState {
   status: RaceStatus;
   winner: RaceWinner;
+  isWinnerModalOpen: boolean;
   loading: boolean;
   raceError: string;
 }
