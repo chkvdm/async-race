@@ -1,4 +1,4 @@
-import styles from 'components/loaders/tableLoader/tableLoader.module.scss';
+import styles from 'components/Loaders/TableLoader/tableLoader.module.scss';
 
 const TableLoader: React.FC = () => {
   return (
