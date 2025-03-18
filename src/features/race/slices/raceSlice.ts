@@ -13,6 +13,7 @@ const initialWinnerState = {
 const initialState: RaceState = {
   status: RaceStatus.INITIAL,
   winner: initialWinnerState,
+  isWinnerModalOpen: false,
   loading: false,
   raceError: '',
 };
@@ -26,6 +27,9 @@ const raceSlice = createSlice({
     },
     setRaceWinner(state, action) {
       state.winner = action.payload;
+    },
+    setIsWinnerModalOpen(state, action) {
+      state.isWinnerModalOpen = action.payload;
     },
     setRaceError(state, action) {
       state.raceError = action.payload;
@@ -63,6 +67,7 @@ const raceSlice = createSlice({
   },
 });
 
-export const { setRaceStatus, setRaceWinner, setRaceError } = raceSlice.actions;
+export const { setRaceStatus, setRaceWinner, setRaceError, setIsWinnerModalOpen } =
+  raceSlice.actions;
 
 export default raceSlice.reducer;
