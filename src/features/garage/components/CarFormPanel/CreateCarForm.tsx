@@ -9,10 +9,12 @@ import inputRules from '@garageFeatures/utils/inputRules';
 import ActionButton from 'components/Buttons/ActionButton/ActionButton';
 import ControlledColorPicker from 'components/ColorPickers/ControlledColorPicker/ControlledColorPicker';
 import TextInput from 'components/Inputs/TextInputs/TextInput';
+import RaceStatus from '@raceFeatures/ts/enums/race.enums';
 
 const CreateCarForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const { createCarForm, currentPageNumber } = useAppSelector((state: RootState) => state.garage);
+  const { status } = useAppSelector((state: RootState) => state.race);
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -33,7 +35,12 @@ const CreateCarForm: React.FC = () => {
   };
 
   return (
-    <Form form={form} layout="inline" onFinish={handleSubmit}>
+    <Form
+      form={form}
+      layout="inline"
+      onFinish={handleSubmit}
+      disabled={!(status === RaceStatus.INITIAL)}
+    >
       <Form.Item name="name" rules={inputRules} validateTrigger="onBlur">
         <TextInput onChange={(name) => handleFormChange({ name })} placeholder="e.g. lada vesta" />
       </Form.Item>

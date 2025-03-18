@@ -7,7 +7,7 @@ import {
   calculateRemainingTrackTime,
   convertMillisecondsToSeconds,
 } from '@raceFeatures/utils/carTrackTimeCalculation';
-import { EngineStatus } from '@garageTypes/enums/garage.enums';
+import { EngineStatus, GarageLimits } from '@garageTypes/enums/garage.enums';
 import {
   getTrackAndCarPositions,
   calculateRemainingDistance,
@@ -18,6 +18,7 @@ import {
   initialCarState,
   resetEditCarForm,
   updateEditCarForm,
+  setCurrentPageNumber,
 } from '@garageFeatures/slices/garageSlice';
 import { fetchCars, deleteCar } from '@garageFeatures/slices/garageThunks';
 import RaceStatus from '@raceTypes/enums/race.enums';
@@ -25,9 +26,14 @@ import { setRaceWinner } from '@raceFeatures/slices/raceSlice';
 import winnersApi from 'features/winners/api/winnersApi';
 import { createWinner, updateWinner } from 'features/winners/slices/winnerThunks';
 
+const removeCarConstants = {
+  CARS_REMOVED: 1,
+  PAGE_DECREMENT: 1,
+};
+
 const useRaceCarService = (): UseCarServiceType => {
   const dispatch = useAppDispatch();
-  const { carsStateOnTrack, currentPageNumber, editCarForm } = useAppSelector(
+  const { carsStateOnTrack, currentPageNumber, editCarForm, totalCars } = useAppSelector(
     (state: RootState) => state.garage
   );
   const { status, winner } = useAppSelector((state: RootState) => state.race);
@@ -163,7 +169,18 @@ const useRaceCarService = (): UseCarServiceType => {
         .unwrap()
         .then(() => {
           dispatch(resetEditCarForm());
-          dispatch(fetchCars(currentPageNumber));
+
+          const newTotalCars = totalCars - removeCarConstants.CARS_REMOVED;
+          const newPageCount = Math.ceil(newTotalCars / GarageLimits.PAGE_LIMIT);
+
+          if (currentPageNumber > newPageCount) {
+            Promise.all([
+              dispatch(setCurrentPageNumber(currentPageNumber - removeCarConstants.PAGE_DECREMENT)),
+              dispatch(fetchCars(currentPageNumber - removeCarConstants.PAGE_DECREMENT)),
+            ]);
+          } else {
+            dispatch(fetchCars(currentPageNumber));
+          }
         });
     },
 
