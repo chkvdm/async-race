@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from '@reduxHook';
 import { RootState } from '@store';
 import useRaceCarService from '@raceFeatures/services/raceCarServices';
 import { startRace, stopRace, pauseRace, resumeRace } from '@raceFeatures/slices/raceThunks';
+import { resetCarsStateOnTrack } from '@garageFeatures/slices/garageSlice';
 import ActionButton from 'components/Buttons/ActionButton/ActionButton';
 import RaceStatus from '@raceTypes/enums/race.enums';
 import styles from '@garageComponents/RaceControlPanel/raceButtonGroup.module.scss';
@@ -19,6 +20,7 @@ const RaceControlPanel: React.FC<RaceControlPanelProps> = ({ carRefs }) => {
   const { status } = useAppSelector((state: RootState) => state.race);
 
   const handleStartRace = async (): Promise<void> => {
+    dispatch(resetCarsStateOnTrack());
     dispatch(startRace({ cars, carRefs, startCar, drive }));
   };
 
@@ -50,9 +52,9 @@ const RaceControlPanel: React.FC<RaceControlPanelProps> = ({ carRefs }) => {
           htmlType="button"
           style={{ width: '120px' }}
           onClick={handleStopRace}
-          disabled={status === RaceStatus.INITIAL || status === RaceStatus.ACTIVE}
+          disabled={status === RaceStatus.INITIAL}
         >
-          Reset Race
+          Stop Race
         </ActionButton>
       </div>
 
