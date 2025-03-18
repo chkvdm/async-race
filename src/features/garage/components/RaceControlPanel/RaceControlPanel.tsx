@@ -50,7 +50,7 @@ const RaceControlPanel: React.FC<RaceControlPanelProps> = ({ carRefs }) => {
           htmlType="button"
           style={{ width: '120px' }}
           onClick={handleStopRace}
-          disabled={status === RaceStatus.INITIAL}
+          disabled={status === RaceStatus.INITIAL || status === RaceStatus.ACTIVE}
         >
           Reset Race
         </ActionButton>

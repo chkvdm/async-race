@@ -51,22 +51,11 @@ const raceSlice = createSlice({
         state.loading = false;
       });
     builder
-      .addMatcher(isPending(startRace), (state) => {
-        state.status = RaceStatus.ACTIVE;
+      .addMatcher(isPending(startRace, stopRace, pauseRace, resumeRace), (state) => {
         state.raceError = '';
         state.loading = true;
       })
-      .addMatcher(isPending(stopRace, pauseRace, resumeRace), (state) => {
-        state.raceError = '';
-        state.loading = true;
-      })
-      .addMatcher(isRejected(startRace), (state, action) => {
-        state.status = RaceStatus.INITIAL;
-        state.raceError =
-          typeof action.payload === 'string' ? action.payload : 'Something went wrong';
-        state.loading = false;
-      })
-      .addMatcher(isRejected(stopRace, pauseRace, resumeRace), (state, action) => {
+      .addMatcher(isRejected(startRace, stopRace, pauseRace, resumeRace), (state, action) => {
         state.raceError =
           typeof action.payload === 'string' ? action.payload : 'Something went wrong';
         state.loading = false;
