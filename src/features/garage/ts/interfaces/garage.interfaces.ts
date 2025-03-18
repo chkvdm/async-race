@@ -11,7 +11,7 @@ export interface GarageState {
   garageError: string;
 }
 
-export interface UseGarageState {
+export interface UseGaragePaginationHook {
   currentPageNumber: number;
   totalCars: number;
   handlePageChange: (newPageNumber: number) => void;
