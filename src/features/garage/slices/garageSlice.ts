@@ -16,6 +16,7 @@ export const initialCarState: CarStateOnTreck = {
   engineStatus: EngineStatus.STOP,
   engineCondition: true,
   isDrive: false,
+  isFinished: false,
   trackTime: 0,
   trackTimeAfterPause: 0,
   carStateOnTreckError: '',
