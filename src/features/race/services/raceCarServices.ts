@@ -59,6 +59,7 @@ const useRaceCarService = (): UseCarServiceType => {
             position: remainingDistanceInPercent,
             isDrive: false,
             engineCondition: false,
+            isFinished: true,
             carStateOnTreckError: 'Ooopppp... Engine is damage',
           },
         })
@@ -216,6 +217,7 @@ const useRaceCarService = (): UseCarServiceType => {
           carState: {
             position: remainingDistanceInPercent,
             isDrive: false,
+            isFinished: true,
           },
         })
       );
