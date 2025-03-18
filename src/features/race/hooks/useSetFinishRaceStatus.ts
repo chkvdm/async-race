@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '@reduxHook';
 import RaceStatus from '@raceTypes/enums/race.enums';
 import { setRaceStatus, setIsWinnerModalOpen } from '@raceFeatures/slices/raceSlice';
 
-const useSetFinishRaceStatus = async (): Promise<void> => {
+const useSetFinishRaceStatus = (): void => {
   const dispatch = useAppDispatch();
   const carsStateOnTrack = useAppSelector((state) => state.garage.carsStateOnTrack);
   const status = useAppSelector((state) => state.race.status);
