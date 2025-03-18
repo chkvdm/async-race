@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@reduxHook';
 import RaceStatus from '@raceTypes/enums/race.enums';
-import { setRaceStatus } from '@raceFeatures/slices/raceSlice';
+import { setRaceStatus, setIsWinnerModalOpen } from '@raceFeatures/slices/raceSlice';
 
 const useSetFinishRaceStatus = async (): Promise<void> => {
   const dispatch = useAppDispatch();
@@ -11,8 +11,10 @@ const useSetFinishRaceStatus = async (): Promise<void> => {
 
   useEffect(() => {
     const hasRunningCars = Object.values(carsStateOnTrack).some((car) => car.isDrive === true);
-    if (!hasRunningCars && status === RaceStatus.ACTIVE) {
+    const hasFinishedCars = Object.values(carsStateOnTrack).some((car) => car.isFinished === false);
+    if (!hasRunningCars && !hasFinishedCars && status === RaceStatus.ACTIVE) {
       dispatch(setRaceStatus(RaceStatus.FINISHED));
+      dispatch(setIsWinnerModalOpen(true));
     }
   }, [carsStateOnTrack, status]);
 };
