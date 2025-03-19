@@ -1,6 +1,6 @@
 import { createSlice, isPending, isRejected } from '@reduxjs/toolkit';
 
-import { Car, CarStateOnTreck } from '@garageTypes/types/garage.types';
+import { CarStateOnTreck } from '@garageTypes/types/garage.types';
 import { GarageState } from '@garageTypes/interfaces/garage.interfaces';
 import { EngineStatus, CarConstants } from '@garageTypes/enums/garage.enums';
 import {
@@ -74,12 +74,11 @@ const garageSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.cars = action.payload.cars;
         state.totalCars = action.payload.total;
-        state.carsStateOnTrack = action.payload.cars.reduce(
-          (acc: Record<number, CarStateOnTreck>, car: Car) => {
-            return { ...acc, [car.id]: initialCarState };
-          },
-          {}
-        );
+        action.payload.cars.forEach((car: { id: number }) => {
+          if (!state.carsStateOnTrack[car.id]) {
+            state.carsStateOnTrack[car.id] = initialCarState;
+          }
+        });
         state.loading = false;
       })
       .addCase(createCar.fulfilled, (state) => {
