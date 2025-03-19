@@ -16,12 +16,12 @@ interface RaceControlPanelProps {
 const RaceControlPanel: React.FC<RaceControlPanelProps> = ({ carRefs }) => {
   const dispatch = useAppDispatch();
   const { cars } = useAppSelector((state: RootState) => state.garage);
-  const { startCar, stopCar, drive, pauseCar, resumeAfterPauseCar } = useRaceCarService();
+  const { startCar, stopCar, pauseCar, resumeAfterPauseCar } = useRaceCarService();
   const { status } = useAppSelector((state: RootState) => state.race);
 
   const handleStartRace = async (): Promise<void> => {
     dispatch(resetCarsStateOnTrack());
-    dispatch(startRace({ cars, carRefs, startCar, drive }));
+    dispatch(startRace({ cars, carRefs, startCar }));
   };
 
   const handleStopRace = async (): Promise<void> => {
