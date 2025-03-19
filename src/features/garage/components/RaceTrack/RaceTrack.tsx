@@ -34,7 +34,7 @@ const RaceTrack: React.FC<RaceTrackType> = ({ carRefs }) => {
 
               <div className={styles.raceTrack}>
                 <div className={styles.raceCarActionButtons}>
-                  <RaceCarActionButtonsPanel car={car} />
+                  <RaceCarActionButtonsPanel car={car} carRefs={carRefs} />
                 </div>
 
                 <div className={styles.raceCar}>

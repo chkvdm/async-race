@@ -10,12 +10,10 @@ export const startRace = createAsyncThunk(
       cars,
       carRefs,
       startCar,
-      drive,
     }: {
       cars: Car[];
       carRefs: React.MutableRefObject<{ [id: number]: HTMLSpanElement | null }>;
-      startCar: (id: number) => Promise<void>;
-      drive: (
+      startCar: (
         id: number,
         carRefs: React.MutableRefObject<{ [id: number]: HTMLSpanElement | null }>
       ) => Promise<void>;
@@ -23,8 +21,7 @@ export const startRace = createAsyncThunk(
     { rejectWithValue }
   ) => {
     return handleApiRequest(async () => {
-      cars.forEach((car) => startCar(car.id));
-      cars.forEach((car) => drive(car.id, carRefs));
+      cars.forEach((car) => startCar(car.id, carRefs));
       return 'Race started successfully';
     }, rejectWithValue);
   }

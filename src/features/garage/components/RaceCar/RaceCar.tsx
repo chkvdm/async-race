@@ -10,7 +10,6 @@ import styles from '@garageComponents/RaceCar/raceCar.module.scss';
 
 type RaceCarType = {
   car: Car;
-
   carRefs: React.MutableRefObject<{
     [id: number]: HTMLSpanElement | null;
   }>;

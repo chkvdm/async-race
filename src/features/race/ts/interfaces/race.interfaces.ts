@@ -11,7 +11,12 @@ export interface RaceState {
 }
 
 export interface UseCarServiceType {
-  startCar: (id: number) => Promise<void>;
+  startCar: (
+    id: number,
+    carRefs: React.MutableRefObject<{
+      [id: number]: HTMLSpanElement | null;
+    }>
+  ) => Promise<void>;
   drive: (
     id: number,
     carRefs: React.MutableRefObject<{ [id: number]: HTMLSpanElement | null }>

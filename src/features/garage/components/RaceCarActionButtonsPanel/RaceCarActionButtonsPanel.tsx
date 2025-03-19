@@ -15,9 +15,12 @@ import RaceStatus from '@raceFeatures/ts/enums/race.enums';
 
 type RaceCarActionButtonsPanelType = {
   car: Car;
+  carRefs: React.MutableRefObject<{
+    [id: number]: HTMLSpanElement | null;
+  }>;
 };
 
-const RaceCarActionButtonsPanel: React.FC<RaceCarActionButtonsPanelType> = ({ car }) => {
+const RaceCarActionButtonsPanel: React.FC<RaceCarActionButtonsPanelType> = ({ car, carRefs }) => {
   const { carsStateOnTrack } = useAppSelector((state: RootState) => state.garage);
   const { status } = useAppSelector((state: RootState) => state.race);
   const { startCar, stopCar, removeCar, editCar } = useRaceCarService();
@@ -75,7 +78,7 @@ const RaceCarActionButtonsPanel: React.FC<RaceCarActionButtonsPanelType> = ({ ca
             }}
           />
         }
-        onClick={() => startCar(car.id)}
+        onClick={() => startCar(car.id, carRefs)}
         disabled={!!carsStateOnTrack[car.id]?.trackTimeAfterPause}
       />
 
@@ -86,7 +89,9 @@ const RaceCarActionButtonsPanel: React.FC<RaceCarActionButtonsPanelType> = ({ ca
           <CloseCircleOutlined
             style={{
               color:
-                !carsStateOnTrack[car.id]?.isDrive && !carsStateOnTrack[car.id]?.trackTimeAfterPause
+                (!carsStateOnTrack[car.id]?.isDrive &&
+                  !carsStateOnTrack[car.id]?.trackTimeAfterPause) ||
+                !(status === RaceStatus.INITIAL)
                   ? 'gray'
                   : 'red',
             }}
@@ -94,7 +99,8 @@ const RaceCarActionButtonsPanel: React.FC<RaceCarActionButtonsPanelType> = ({ ca
         }
         onClick={() => stopCar(car.id)}
         disabled={
-          !carsStateOnTrack[car.id]?.isDrive && !carsStateOnTrack[car.id]?.trackTimeAfterPause
+          (!carsStateOnTrack[car.id]?.isDrive && !carsStateOnTrack[car.id]?.trackTimeAfterPause) ||
+          !(status === RaceStatus.INITIAL)
         }
       />
     </>
