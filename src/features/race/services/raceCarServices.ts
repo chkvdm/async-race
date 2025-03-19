@@ -85,7 +85,12 @@ const useRaceCarService = (): UseCarServiceType => {
       }
     },
 
-    async startCar(id: number): Promise<void> {
+    async startCar(
+      id: number,
+      carRefs: React.MutableRefObject<{
+        [id: number]: HTMLSpanElement | null;
+      }>
+    ): Promise<void> {
       const trackTime = await trackTimeCalculation(id, EngineStatus.START);
       dispatch(
         updateCarStateOnTrack({
@@ -101,6 +106,7 @@ const useRaceCarService = (): UseCarServiceType => {
       if (!trackTime) {
         throw new Error('Failed to start...');
       }
+      raceCarService.drive(id, carRefs);
     },
 
     async stopCar(id: number): Promise<void> {
