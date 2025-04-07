@@ -17,14 +17,30 @@
   text-decoration: none;
   text-transform: capitalize;
   color: var(--main-text-color);
-  line-height: var(--spacing-large);
 }
 
 .headerLink {
+  position: relative;
   transition:
     opacity 0.3s ease,
     text-underline-offset 0.3s ease;
   margin-right: var(--spacing-medium);
+}
+
+.headerLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--underline-height);
+  bottom: calc(-1 * var(--spacing-small) + var(--underline-adjustment));
+  background: var(--main-text-color);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.headerLink:hover::after {
+  transform: scaleX(1);
 }
 
 .activeHeaderLink {
@@ -37,10 +53,4 @@
 .headerLink:last-child,
 .activeHeaderLink:last-child {
   margin-right: 0;
-}
-
-.headerLink:hover,
-.headerLink:focus {
-  text-underline-offset: var(--spacing-small);
-  text-decoration: underline 0.2rem;
 }
